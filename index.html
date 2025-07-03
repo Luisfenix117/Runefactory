@@ -10,9 +10,10 @@
             color: #eeeeee;
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding-top: 70px; /* Space for fixed header */
+            padding-top: 70px; /* Espacio para el encabezado fijo */
         }
-        /* --- Header & Navigation --- */
+
+        /* --- Encabezado y Navegación --- */
         .fixed-header {
             position: fixed;
             top: 0;
@@ -25,7 +26,7 @@
             z-index: 1000;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Centrar el título */
+            justify-content: center;
             align-items: center;
             gap: 10px;
         }
@@ -33,24 +34,23 @@
             margin: 0;
             color: #ffc860;
             font-size: 1.5em;
-            text-align: center; /* Centrar el texto del título */
-            flex-grow: 1; /* Para que ocupe el espacio disponible y el centrado funcione mejor */
+            text-align: center;
+            flex-grow: 1;
         }
 
         /* --- Brillo al seleccionar un estado --- */
         .highlight-flash {
             animation: glowHighlight 1s ease-out;
-            background-color: rgba(255, 255, 0, 0.2); /* resalta con amarillo claro */
+            background-color: rgba(255, 255, 0, 0.2); /* Resalta con amarillo claro */
             border-radius: 8px;
         }
-
         @keyframes glowHighlight {
             0%   { box-shadow: 0 0 0px yellow; }
             50%  { box-shadow: 0 0 20px 6px yellow; }
             100% { box-shadow: 0 0 0px yellow; }
         }
 
-        /* --- Main Content Styling --- */
+        /* --- Estilo del Contenido Principal --- */
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -59,7 +59,6 @@
         h1, h2 {
             text-align: center;
             color: #ffc860;
-            font-size: 2em;
             margin-bottom: 10px;
             margin-top: 40px;
         }
@@ -70,14 +69,15 @@
             margin-bottom: 30px;
         }
         h3 {
-            color: #ffc860;
+            color: #ffc860; /* Color por defecto para h3, ajustado por clases de temporada */
             margin-top: 0;
+            font-size: 1.3em;
         }
         p {
             line-height: 1.6;
         }
 
-        /* --- Table Styling --- */
+        /* --- Estilo de Tabla --- */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -108,6 +108,44 @@
             transition: background-color 0.3s ease;
         }
 
+        /* --- Estilos para nombres de personajes con colores --- */
+        .character-name {
+            font-weight: bold;
+        }
+        .character-name.bianca { color: #DB7093; }     /* Rosa fuerte con azul y blanco */
+        .character-name.felicity { color: #A0522D; }   /* Marrón claro y beige */
+        .character-name.lara { color: #87CEFA; }       /* Azul claro y blanco */
+        .character-name.lynette { color: #B22222; }    /* Rojo oscuro con blanco */
+        .character-name.mei { color: #9370DB; }        /* Púrpura medio */
+        .character-name.melody { color: #8B0000; }     /* Rojo intenso (bruja) */
+        .character-name.mist { color: #ADD8E6; }       /* Azul muy claro */
+        .character-name.rosetta { color: #DAA520; }    /* Dorado (amarillo y verde) */
+        .character-name.sharron { color: #D3D3D3; }    /* Gris claro con rojo */
+        .character-name.tabatha { color: #6A5ACD; }    /* Azul violeta (criada) */
+        .character-name.tori { color: #FF69B4; }       /* Rosa fuerte con verde */
+
+
+        /* --- Estilos para los "gustados" en cuadrados (tanto en tabla como en cultivos) --- */
+        .liked-items-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px; /* Espacio entre los cuadrados */
+        }
+        .liked-item {
+            background-color: #282828; /* Fondo más oscuro para los items */
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 0.85em; /* Un poco más pequeño */
+            white-space: nowrap; /* Evita que el texto del item se rompa */
+            border: 1px solid #3a3a3a; /* Borde sutil */
+        }
+
+        /* --- Iconos de Temporada para Cumpleaños --- */
+        .season-icon {
+            margin-right: 5px;
+            font-size: 0.9em;
+        }
+
         /* --- Collapsible Sections (Details Tag) --- */
         details {
             background:#1a1a1a;
@@ -124,13 +162,13 @@
             cursor: pointer;
             outline: none;
             padding: 5px 0;
-            list-style: none; /* Hide default arrow */
+            list-style: none; /* Oculta la flecha por defecto */
             position: relative;
         }
         details summary::-webkit-details-marker {
-            display: none; /* Hide default arrow for WebKit browsers */
+            display: none; /* Oculta la flecha por defecto para WebKit */
         }
-        details summary::before { /* Custom arrow */
+        details summary::before { /* Flecha personalizada */
             content: '▶';
             position: absolute;
             left: -20px;
@@ -159,7 +197,15 @@
         .grid-item h3 {
             margin-top: 0;
             margin-bottom: 10px;
+            text-align: left; /* Alineado a la izquierda dentro del grid-item */
+            font-size: 1.1em; /* Ajuste para los títulos de las estaciones */
         }
+        /* --- Colores para los títulos de las estaciones --- */
+        .season-spring { color: #FF69B4; /* Rosa para Primavera */ }
+        .season-summer { color: #FFD700; /* Dorado para Verano */ }
+        .season-fall { color: #FFA500; /* Naranja para Otoño */ }
+        .season-winter { color: #87CEEB; /* Azul Cielo para Invierno */ }
+
         .grid-item p {
             margin-bottom: 5px;
             font-size: 0.95em;
@@ -176,6 +222,12 @@
         .grid-item li {
             margin-bottom: 2px;
         }
+        /* Ajuste para los elementos 'Gustada por' en la sección de cultivos */
+        .grid-item .liked-by-character {
+            display: inline-block; /* Para que cada nombre se comporte como un bloque */
+            margin-right: 5px; /* Espacio entre los nombres */
+            font-weight: bold;
+        }
         .note {
             color:#aaaaaa;
             font-size: 0.9em;
@@ -184,7 +236,7 @@
             padding-top: 10px;
         }
 
-        /* --- Floating HUD --- */
+        /* --- HUD Flotante --- */
         .hud-float {
             position: fixed;
             bottom: 20px;
@@ -212,33 +264,29 @@
         .hud-float a:hover {
             background-color: #2a2a2a;
         }
-        /* Specific HUD colors */
+        /* Colores específicos del HUD */
         a[href="#veneno"] { color:#ff7c7c; }
         a[href="#paralisis"] { color:#f4c862; }
         a[href="#sellado"] { color:#85d1ff; }
         a[href="#resfriado"] { color:#8ac887; }
         a[href="#enfermedad"] { color:#d57cff; }
 
-        /* --- Animations --- */
+        /* --- Animaciones --- */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- Media Queries for Responsiveness --- */
+        /* --- Media Queries para Responsividad --- */
         @media (max-width: 768px) {
             body {
-                padding-top: 70px;
+                padding-top: 60px;
             }
             .fixed-header {
-                flex-direction: row;
-                justify-content: center;
-                padding: 10px;
+                padding: 8px 15px;
             }
             .fixed-header h1 {
-                font-size: 1.2em;
-                margin-bottom: 0;
-                text-align: center;
+                font-size: 1.3em;
             }
             .hud-float {
                 flex-wrap: wrap;
@@ -252,226 +300,364 @@
                 font-size: 1.1em;
             }
             table, th, td {
-                font-size: 0.85em;
+                font-size: 0.8em;
+            }
+            .grid-item h3 {
+                font-size: 1em;
+            }
+            .liked-item {
+                font-size: 0.8em; /* Ajuste para items en móviles */
+                padding: 4px 6px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="fixed-header">
+<header class="fixed-header">
     <h1>🌾 Rune Factory 1 – Guía Rápida</h1>
-</div>
+</header>
 
-<div class="container">
+<main class="container">
 
-    <h2 id="characters-section">Regalos, Cumpleaños y Festivales Estacionales</h2>
-
-    <table id="character-table">
-        <thead>
-            <tr>
-                <th>👤 Personaje</th>
-                <th>🎂 Cumpleaños</th>
-                <th>❤️ Favorito</th>
-                <th>👍 Gustados</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Mist</td>
-                <td>Otoño 1</td>
-                <td>Flor de Emery</td>
-                <td>Rábano, Manzana horneada, Trébol de 4 hojas, Udon frito, Pastel, Croquetas, Mariscos gratinados, Pan al vapor, Pan de queso, Panqueque</td>
-            </tr>
-            <tr>
-                <td>Rosetta</td>
-                <td>Verano 21</td>
-                <td>Papa horneada</td>
-                <td>Maíz asado, Omelet, Maíz, Cebolla</td>
-            </tr>
-            <tr>
-                <td>Lara</td>
-                <td>Invierno 1</td>
-                <td>Pastel de chocolate</td>
-                <td>Hotcakes, Fresa, Calabaza</td>
-            </tr>
-            <tr>
-                <td>Melody</td>
-                <td>Primavera 11</td>
-                <td>Té relajante</td>
-                <td>Hierbas silvestres, Trigo</td>
-            </tr>
-            <tr>
-                <td>Sharron</td>
-                <td>Invierno 11</td>
-                <td>Hojas de té relajante</td>
-                <td>Cristales mágicos, Brote de bambú</td>
-            </tr>
-            <tr>
-                <td>Tori</td>
-                <td>Primavera 17</td>
-                <td>Flan de calabaza</td>
-                <td>Uva, Flor Pink Cat, Calabaza</td>
-            </tr>
-            <tr>
-                <td>Felicity</td>
-                <td>Otoño 6</td>
-                <td>Cuajada de berenjena</td>
-                <td>Pan tostado, Pizza, Berenjena, Calabaza</td>
-            </tr>
-            <tr>
-                <td>Mei</td>
-                <td>Invierno 26</td>
-                <td>Bolitas de arroz horneadas</td>
-                <td>Pescado fresco, Camote</td>
-            </tr>
-            <tr>
-                <td>Lynette</td>
-                <td>Invierno 28</td>
-                <td>Trébol de 4 hojas</td>
-                <td>Yogur grande, Fresa, Brote de bambú</td>
-            </tr>
-            <tr>
-                <td>Tabatha</td>
-                <td>Verano 12</td>
-                <td>Gachas de arroz</td>
-                <td>Uva, Harina</td>
-            </tr>
-            <tr>
-                <td>Bianca</td>
-                <td>Verano 8</td>
-                <td>No acepta regalos</td>
-                <td>—</td>
-            </tr>
-        </tbody>
-    </table>
+    <section id="characters-section">
+        <h2>Regalos, Cumpleaños y Festivales Estacionales</h2>
+        <table id="character-table">
+            <thead>
+                <tr>
+                    <th>👤 Personaje</th>
+                    <th>🎂 Cumpleaños</th>
+                    <th>❤️ Favorito</th>
+                    <th>👍 Le Gusta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="character-name mist">Mist</span></td>
+                    <td><span class="season-icon">🍂</span> Otoño 1</td>
+                    <td>Flor de Emery</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Rábano</span>
+                            <span class="liked-item">Manzana horneada</span>
+                            <span class="liked-item">Trébol de 4 hojas</span>
+                            <span class="liked-item">Udon frito</span>
+                            <span class="liked-item">Pastel</span>
+                            <span class="liked-item">Croquetas</span>
+                            <span class="liked-item">Mariscos gratinados</span>
+                            <span class="liked-item">Pan al vapor</span>
+                            <span class="liked-item">Pan de queso</span>
+                            <span class="liked-item">Panqueque</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name rosetta">Rosetta</span></td>
+                    <td><span class="season-icon">☀️</span> Verano 21</td>
+                    <td>Papa horneada</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Maíz asado</span>
+                            <span class="liked-item">Omelet</span>
+                            <span class="liked-item">Maíz</span>
+                            <span class="liked-item">Cebolla</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name lara">Lara</span></td>
+                    <td><span class="season-icon">❄️</span> Invierno 1</td>
+                    <td>Pastel de chocolate</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Hotcakes</span>
+                            <span class="liked-item">Fresa</span>
+                            <span class="liked-item">Calabaza</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name melody">Melody</span></td>
+                    <td><span class="season-icon">🌸</span> Primavera 11</td>
+                    <td>Té relajante</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Hierbas silvestres</span>
+                            <span class="liked-item">Trigo</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name sharron">Sharron</span></td>
+                    <td><span class="season-icon">❄️</span> Invierno 11</td>
+                    <td>Hojas de té relajante</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Cristales mágicos</span>
+                            <span class="liked-item">Brote de bambú</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name tori">Tori</span></td>
+                    <td><span class="season-icon">🌸</span> Primavera 17</td>
+                    <td>Flan de calabaza</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Uva</span>
+                            <span class="liked-item">Flor Pink Cat</span>
+                            <span class="liked-item">Calabaza</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name felicity">Felicity</span></td>
+                    <td><span class="season-icon">🍂</span> Otoño 6</td>
+                    <td>Cuajada de berenjena</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Pan tostado</span>
+                            <span class="liked-item">Pizza</span>
+                            <span class="liked-item">Berenjena</span>
+                            <span class="liked-item">Calabaza</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name mei">Mei</span></td>
+                    <td><span class="season-icon">❄️</span> Invierno 26</td>
+                    <td>Bolitas de arroz horneadas</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Pescado fresco</span>
+                            <span class="liked-item">Camote</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name lynette">Lynette</span></td>
+                    <td><span class="season-icon">❄️</span> Invierno 28</td>
+                    <td>Trébol de 4 hojas</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Yogur grande</span>
+                            <span class="liked-item">Fresa</span>
+                            <span class="liked-item">Brote de bambú</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name tabatha">Tabatha</span></td>
+                    <td><span class="season-icon">☀️</span> Verano 12</td>
+                    <td>Gachas de arroz</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">Uva</span>
+                            <span class="liked-item">Harina</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="character-name bianca">Bianca</span></td>
+                    <td><span class="season-icon">☀️</span> Verano 8</td>
+                    <td>No acepta regalos</td>
+                    <td>
+                        <div class="liked-items-container">
+                            <span class="liked-item">—</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
     <hr />
 
-    <h2 id="crops-section">🌱 Qué Sembrar por Temporada</h2>
-
-    <details open>
-        <summary>Información de Cultivos</summary>
-        <div class="grid-container">
-            <div class="grid-item">
-                <h3 style="color:#ffc860;">🌸 Primavera</h3>
-                <p><strong>Cultivos recomendados (gustados o para recetas):</strong></p>
-                <ul>
-                    <li>Uva — Gustada por Tori, Tabatha</li>
-                    <li>Brote de bambú — Gustada por Lynette, Sharron</li>
-                </ul>
-                <p class="note">Uva es útil para regalos y recetas, y brote de bambú es un cultivo especial.</p>
+    <section id="crops-section">
+        <h2>🌱 Qué Sembrar por Temporada</h2>
+        <details open>
+            <summary>Información de Cultivos</summary>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3 class="season-spring">🌸 Primavera</h3>
+                    <p><strong>Cultivos recomendados (Le gusta o para recetas):</strong></p>
+                    <ul>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Uva</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name tori">Tori</span>, <span class="character-name tabatha">Tabatha</span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Brote de bambú</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name lynette">Lynette</span>, <span class="character-name sharron">Sharron</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="note">Uva es útil para regalos y recetas, y brote de bambú es un cultivo especial.</p>
+                </div>
+                <div class="grid-item">
+                    <h3 class="season-summer">☀️ Verano</h3>
+                    <p><strong>Cultivos recomendados (gustados o para recetas):</strong></p>
+                    <ul>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Maíz</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name mist">Mist</span>, <span class="character-name rosetta">Rosetta</span> 
+                                <br>(Ingrediente de Maiz Asado y Omelet)</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Tomate</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name mist">Mist</span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Cebolla</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name rosetta">Rosetta</span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Uva</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name tori">Tori</span>, <span class="character-name tabatha">Tabatha</span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Calabaza</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name lara">Lara</span>, <span class="character-name felicity">Felicity</span>, <span class="character-name tori">Tori</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="note">Maíz, tomate y calabaza son cultivos versátiles para regalos y cocina.</p>
+                </div>
+                <div class="grid-item">
+                    <h3 class="season-fall">🍂 Otoño</h3>
+                    <p><strong>Cultivos recomendados (gustados o para recetas):</strong></p>
+                    <ul>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Calabaza</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name lara">Lara</span>, <span class="character-name felicity">Felicity</span>, <span class="character-name tori">Tori</span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Berenjena</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name felicity">Felicity</span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Camote</span>
+                                <span class="liked-by-character">— Gustado por <span class="character-name mei">Mei</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="note">Calabaza y berenjena son cultivos importantes para regalos y cocina.</p>
+                </div>
+                <div class="grid-item">
+                    <h3 class="season-winter">❄️ Invierno</h3>
+                    <p><strong>Cultivos recomendados (gustados o para recetas):</strong></p>
+                    <ul>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Brote de bambú</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name lynette">Lynette</span>, <span class="character-name sharron">Sharron</span></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="liked-items-container">
+                                <span class="liked-item">Pescado fresco (pesca)</span>
+                                <span class="liked-by-character">— Le gusta a <span class="character-name mei">Mei</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="note">En invierno la pesca es clave y brote de bambú sigue disponible.</p>
+                </div>
             </div>
-
-            <div class="grid-item">
-                <h3 style="color:#ffc860;">☀️ Verano</h3>
-                <p><strong>Cultivos recomendados (gustados o para recetas):</strong></p>
-                <ul>
-                    <li>Maíz — Gustado por Mist, Rosetta (ingrediente en maíz asado y omelet)</li>
-                    <li>Tomate — Gustado por Mist</li>
-                    <li>Cebolla — Gustada por Rosetta</li>
-                    <li>Uva — Gustada por Tori, Tabatha</li>
-                    <li>Calabaza — Gustada por Lara, Felicity, Tori</li>
-                </ul>
-                <p class="note">Maíz, tomate y calabaza son cultivos versátiles para regalos y cocina.</p>
-            </div>
-
-            <div class="grid-item">
-                <h3 style="color:#ffc860;">🍂 Otoño</h3>
-                <p><strong>Cultivos recomendados (gustados o para recetas):</strong></p>
-                <ul>
-                    <li>Calabaza — Gustada por Lara, Felicity, Tori</li>
-                    <li>Berenjena — Gustada por Felicity</li>
-                    <li>Camote — Gustado por Mei</li>
-                </ul>
-                <p class="note">Calabaza y berenjena son cultivos importantes para regalos y cocina.</p>
-            </div>
-
-            <div class="grid-item">
-                <h3 style="color:#ffc860;">❄️ Invierno</h3>
-                <p><strong>Cultivos recomendados (gustados o para recetas):</strong></p>
-                <ul>
-                    <li>Brote de bambú — Gustada por Lynette, Sharron</li>
-                    <li>Pescado fresco (pesca) — Gustado por Mei</li>
-                </ul>
-                <p class="note">En invierno la pesca es clave y brote de bambú sigue disponible.</p>
-            </div>
-        </div>
-    </details>
+        </details>
+    </section>
 
     <hr />
 
-    <h2 id="status-section">💀 Estados Alterados y Cómo Curarlos</h2>
-
-    <details open>
-        <summary>Información de Estados Alterados</summary>
-        <div class="grid-container">
-            <div class="grid-item">
-                <h3 id="veneno" style="color:#ff7c7c;">
-                    <img src="images/status_poison.png" alt="Veneno" width="20" height="20" style="vertical-align:middle; margin-right:4px;">Veneno
-                </h3>
-                <p><strong>Efecto:</strong> Pierdes HP gradualmente.</p>
-                <p><strong>Cura:</strong> Antídoto, Hierba Curativa, Health It, Invincibot.</p>
+    <section id="status-section">
+        <h2>💀 Estados Alterados y Cómo Curarlos</h2>
+        <details open>
+            <summary>Información de Estados Alterados</summary>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3 id="veneno">
+                        <img src="images/status_poison.png" alt="Icono de Veneno" width="20" height="20" style="vertical-align:middle; margin-right:4px;">
+                        Veneno
+                    </h3>
+                    <p><strong>Efecto:</strong> Pierdes HP gradualmente.</p>
+                    <p><strong>Cura:</strong> Antídoto, Hierba Curativa, Health It, Invincibot.</p>
+                </div>
+                <div class="grid-item">
+                    <h3 id="paralisis">
+                        <img src="images/status_paralysis.png" alt="Icono de Parálisis" width="20" height="20" style="vertical-align:middle; margin-right:4px;">
+                        Parálisis
+                    </h3>
+                    <p><strong>Efecto:</strong> Solo puedes caminar.</p>
+                    <p><strong>Cura:</strong> Paragon, Health It, Invincibot.</p>
+                </div>
+                <div class="grid-item">
+                    <h3 id="sellado">
+                        <img src="images/status_sealing.png" alt="Icono de Sellado" width="20" height="20" style="vertical-align:middle; margin-right:4px;">
+                        Sellado
+                    </h3>
+                    <p><strong>Efecto:</strong> No puedes usar magia ni mejorar herramientas.</p>
+                    <p><strong>Cura:</strong> Roundoff, Health It, Invincibot.</p>
+                </div>
+                <div class="grid-item">
+                    <h3 id="resfriado">
+                        <img src="images/status_cold.png" alt="Icono de Resfriado" width="20" height="20" style="vertical-align:middle; margin-right:4px;">
+                        Resfriado
+                    </h3>
+                    <p><strong>Efecto:</strong> Duplica el consumo de RP si te duermes tarde.</p>
+                    <p><strong>Cura:</strong> Dormir antes de la 1:00 AM o Medicina para el Resfriado.</p>
+                </div>
+                <div class="grid-item">
+                    <h3 id="enfermedad">
+                        <img src="images/status_illness.png" alt="Icono de Enfermedad" width="20" height="20" style="vertical-align:middle; margin-right:4px;">
+                        Enfermedad
+                    </h3>
+                    <p><strong>Efecto:</strong> Triplica el consumo de RP al día siguiente.</p>
+                    <p><strong>Cura:</strong> Dormir temprano o usar Medicina para el Resfriado.</p>
+                </div>
             </div>
+        </details>
+    </section>
 
-            <div class="grid-item">
-                <h3 id="paralisis" style="color:#f4c862;">
-                    <img src="images/status_paralysis.png" alt="Parálisis" width="20" height="20" style="vertical-align:middle; margin-right:4px;">Parálisis
-                </h3>
-                <p><strong>Efecto:</strong> Solo puedes caminar.</p>
-                <p><strong>Cura:</strong> Paragon, Health It, Invincibot.</p>
-            </div>
+</main>
 
-            <div class="grid-item">
-                <h3 id="sellado" style="color:#85d1ff;">
-                    <img src="images/status_sealing.png" alt="Sellado" width="20" height="20" style="vertical-align:middle; margin-right:4px;">Sellado
-                </h3>
-                <p><strong>Efecto:</strong> No puedes usar magia ni mejorar herramientas.</p>
-                <p><strong>Cura:</strong> Roundoff, Health It, Invincibot.</p>
-            </div>
-
-            <div class="grid-item">
-                <h3 id="resfriado" style="color:#8ac887;">
-                    <img src="images/status_cold.png" alt="Resfriado" width="20" height="20" style="vertical-align:middle; margin-right:4px;">Resfriado
-                </h3>
-                <p><strong>Efecto:</strong> Duplica el consumo de RP si te duermes tarde.</p>
-                <p><strong>Cura:</strong> Dormir antes de la 1:00 AM o Medicina para el Resfriado.</p>
-            </div>
-
-            <div class="grid-item">
-                <h3 id="enfermedad" style="color:#d57cff;">
-                    <img src="images/status_illness.png" alt="Enfermedad" width="20" height="20" style="vertical-align:middle; margin-right:4px;">Enfermedad
-                </h3>
-                <p><strong>Efecto:</strong> Triplica el consumo de RP al día siguiente.</p>
-                <p><strong>Cura:</strong> Dormir temprano o usar Medicina para el Resfriado.</p>
-            </div>
-        </div>
-    </details>
-
-</div>
-
-<div class="hud-float">
+<aside class="hud-float">
     <a href="#veneno" title="Veneno">
-      <img src="images/status_poison.png" alt="Veneno" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+      <img src="images/status_poison.png" alt="Icono de Veneno" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
       Veneno
     </a>
     <a href="#paralisis" title="Parálisis">
-      <img src="images/status_paralysis.png" alt="Parálisis" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+      <img src="images/status_paralysis.png" alt="Icono de Parálisis" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
       Parálisis
     </a>
     <a href="#sellado" title="Sellado">
-      <img src="images/status_sealing.png" alt="Sellado" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+      <img src="images/status_sealing.png" alt="Icono de Sellado" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
       Sellado
     </a>
     <a href="#resfriado" title="Resfriado">
-      <img src="images/status_cold.png" alt="Resfriado" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+      <img src="images/status_cold.png" alt="Icono de Resfriado" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
       Resfriado
     </a>
     <a href="#enfermedad" title="Enfermedad">
-      <img src="images/status_illness.png" alt="Enfermedad" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+      <img src="images/status_illness.png" alt="Icono de Enfermedad" width="18" height="18" style="vertical-align:middle; margin-right:4px;">
       Enfermedad
     </a>
-</div>
+</aside>
 
 <script>
     document.querySelectorAll('.hud-float a').forEach(link => {
@@ -481,7 +667,9 @@
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-          targetElement.classList.remove('highlight-flash'); // para reiniciar animación
+          // Remover la clase para reiniciar la animación
+          targetElement.classList.remove('highlight-flash');
+          // Forzar un "reflow" para que la animación se reinicie
           void targetElement.offsetWidth;
           targetElement.classList.add('highlight-flash');
 
