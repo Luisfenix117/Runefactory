@@ -9,3 +9,5 @@
 　／￣|　　 |　|　|  
 　| (￣ヽ＿_ヽ_)__)  
 　＼二つ  
+``` 
+![Frederica](images/Frederica.gif)
